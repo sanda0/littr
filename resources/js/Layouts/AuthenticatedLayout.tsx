@@ -45,7 +45,11 @@ export default function Authenticated({
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-col flex-1 gap-4 p-4 pt-0">
+        <div className="flex flex-col flex-1 gap-4 p-4 pt-0 overflow-y-auto bg-gray-100 ">
+          <div className='mt-4'>
+            {header}
+            <hr />
+          </div>
           {children}
         </div>
       </SidebarInset>

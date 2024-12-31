@@ -11,16 +11,16 @@ export default function PermissionsIndex() {
         <Authenticated
         currentMenu="Settings"
         header={
-            <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                Permissions
-            </h2>
+            
+            <div className='mb-2 text-4xl'> Permissions </div>
+            
         }
 
         breadcrumbs={breadcrumbs}
     >
         <Head title="Permissions" />
         <div>
-            <h1>Permissions</h1>
+            
         </div>
 
     </Authenticated>
