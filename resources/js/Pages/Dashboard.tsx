@@ -9,6 +9,7 @@ export default function Dashboard() {
                     Dashboard
                 </h2>
             }
+            currentMenu="Playground"
         >
             <Head title="Dashboard" />
 

@@ -28,7 +28,7 @@ import { Link, usePage } from '@inertiajs/react';
 
 
 // This is sample data.
-const data = {
+let data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
@@ -56,11 +56,12 @@ const data = {
       title: "Playground",
       url: "#",
       icon: SquareTerminal,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "History",
           url: "#",
+    
         },
         {
           title: "Starred",
@@ -72,63 +73,24 @@ const data = {
         },
       ],
     },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
+
+
     {
       title: "Settings",
       url: "#",
       icon: Settings2,
+      isActive: false,
       items: [
         {
-          title: "General",
+          title: "Permissions",
+          url: "/permissions",
+        },
+        {
+          title: "Roles",
           url: "#",
         },
         {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
+          title: "Users",
           url: "#",
         },
         {
@@ -157,10 +119,14 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ currentMenu, ...props }: React.ComponentProps<typeof Sidebar> & { currentMenu: string }) {
   const user = usePage().props.auth.user;
   data.user.email = user.email;
   data.user.name = user.name;
+  data.navMain = data.navMain.map((item) => {
+    item.isActive = item.title === currentMenu
+    return item
+  })
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
