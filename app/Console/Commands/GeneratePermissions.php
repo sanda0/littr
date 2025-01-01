@@ -41,6 +41,8 @@ class GeneratePermissions extends Command
             'verification.resend',
             'logout',
             'dashboard',
+            'sanctum.csrf-cookie',
+            'storage.local'
         ];
 
         $superAdminRole = Role::firstOrCreate(['name' => 'super_admin', 'guard_name' => 'web']);

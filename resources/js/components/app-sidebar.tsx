@@ -72,10 +72,6 @@ let data = {
           title: "Users",
           url: "#",
         },
-        {
-          title: "Limits",
-          url: "#",
-        },
       ],
     },
   ],
